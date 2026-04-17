@@ -1,10 +1,12 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
     <main className="min-h-screen bg-white text-gray-800">
       {/* Navbar */}
@@ -13,7 +15,9 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 h-10">{/* h-10 = 40px to match navbar height */}
-                <Image src="/Sunware Logo.png" alt="Sunware Energy logo" width={80} height={40} className="object-contain h-full w-auto" />
+                <Link href="/">
+                  <Image src="/Sunware Logo.png" alt="Sunware Energy logo" width={80} height={40} className="object-contain h-full w-auto" />
+                </Link>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
@@ -24,12 +28,25 @@ export default function Home() {
               <Link href="/contact" className="text-white hover:underline">Contact</Link>
             </nav>
             <div className="md:hidden">
-              {/* Mobile menu button - simple visible placeholder */}
-              <button aria-label="Open menu" className="text-white focus:outline-none">☰</button>
+              {/* Mobile menu button */}
+              <button type="button" aria-label="Toggle menu" onClick={() => setMobileOpen(!mobileOpen)} aria-controls="mobile-menu" aria-expanded={mobileOpen} className="text-white focus:outline-none">☰</button>
             </div>
           </div>
         </div>
       </header>
+
+      {/* Mobile dropdown */}
+      {mobileOpen && (
+        <div id="mobile-menu" className="md:hidden bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e]">
+          <div className="px-6 pt-2 pb-4 space-y-1">
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white py-2">Home</Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white py-2">About</Link>
+            <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-white py-2">Services</Link>
+            <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-white py-2">Get a Quote</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white py-2">Contact</Link>
+          </div>
+        </div>
+      )}
 
       {/* Hero */}
       <section className="bg-gradient-to-b from-yellow-50 to-white">

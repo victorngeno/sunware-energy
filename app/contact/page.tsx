@@ -1,8 +1,11 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Contact() {
+  const [mobileOpen, setMobileOpen] = useState(false)
   return (
     <main className="min-h-screen bg-white text-gray-800">
       {/* Navbar */}
@@ -11,7 +14,9 @@ export default function Contact() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 h-10">
-                <Image src="/Sunware Logo.png" alt="Sunware Energy logo" width={80} height={40} className="object-contain h-full w-auto" />
+                <Link href="/">
+                  <Image src="/Sunware Logo.png" alt="Sunware Energy logo" width={80} height={40} className="object-contain h-full w-auto" />
+                </Link>
               </div>
             </div>
 
@@ -24,11 +29,22 @@ export default function Contact() {
             </nav>
 
             <div className="md:hidden">
-              <button aria-label="Open menu" className="text-white focus:outline-none">☰</button>
+              <button aria-label="Toggle menu" onClick={() => setMobileOpen(!mobileOpen)} aria-expanded={mobileOpen} className="text-white focus:outline-none">☰</button>
             </div>
           </div>
         </div>
       </header>
+      {mobileOpen && (
+        <div className="md:hidden bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e]">
+          <div className="px-6 pt-2 pb-4 space-y-1">
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white py-2">Home</Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white py-2">About</Link>
+            <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-white py-2">Services</Link>
+            <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-white py-2">Get a Quote</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white py-2">Contact</Link>
+          </div>
+        </div>
+      )}
       <section className="bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e] text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold">Contact Us</h1>
