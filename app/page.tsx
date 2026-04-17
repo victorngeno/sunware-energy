@@ -70,6 +70,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* CTA: Solar Calculator */}
+      <section className="bg-gradient-to-r from-[#ecfdf5] to-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+          <div className="bg-white border rounded-lg p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-xl font-bold">Not sure what system size you need?</h3>
+              <p className="mt-1 text-gray-600">Try our quick solar calculator and get a recommended system size and battery suggestion in minutes.</p>
+            </div>
+            <div>
+              <Link href="/calculator" className="inline-flex items-center px-6 py-3 bg-[#2ebc6e] hover:bg-[#27b95b] text-white rounded-md font-semibold shadow">Try Our Solar Calculator</Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services */}
   <section id="services" className="py-6 bg-white">

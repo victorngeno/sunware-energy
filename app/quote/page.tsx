@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export default function Quote() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [sizeOption, setSizeOption] = useState<'know'|'unknown'>('unknown')
 
   return (
     <main className="min-h-screen bg-white text-gray-800">
@@ -118,49 +119,64 @@ export default function Quote() {
                   </div>
                 </div>
 
-                {/* SECTION 3 - THE SIZING */}
+                {/* SECTION 3 - YOUR SYSTEM SIZE */}
                 <div>
-                  <h2 className="text-xl font-semibold text-gray-900">Section 3 — The Sizing</h2>
-                  <div className="mt-4 grid grid-cols-1 gap-4">
-                    <div>
-                      <label htmlFor="bill" className="block text-sm font-medium text-gray-700">Average Monthly KPLC Bill (KSh)</label>
-                      <select id="bill" name="bill" className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]">
-                        <option>0-5,000</option>
-                        <option>5,000-15,000</option>
-                        <option>15,000-50,000</option>
-                        <option>50,000+</option>
-                      </select>
-                    </div>
+                  <h2 className="text-xl font-semibold text-gray-900">Section 3 — Your System Size</h2>
+                  <div className="mt-4">
+                    <div className="bg-white border rounded-md p-4">
+                      <div className="space-y-4">
+                        <label className="flex items-start gap-3">
+                          <input type="radio" name="sizeOption" value="know" checked={sizeOption === 'know'} onChange={() => setSizeOption('know')} className="mt-1 h-4 w-4 text-[#2ebc6e]" />
+                          <div>
+                            <div className="font-semibold">Option A - I know my system size</div>
+                            {sizeOption === 'know' && (
+                              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                  <label htmlFor="recommendedSystemSize" className="block text-sm font-medium text-gray-700">Recommended System Size (kW)</label>
+                                  <select id="recommendedSystemSize" name="recommendedSystemSize" className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]">
+                                    <option value="1">1 kW</option>
+                                    <option value="1.5">1.5 kW</option>
+                                    <option value="2">2 kW</option>
+                                    <option value="3">3 kW</option>
+                                    <option value="5">5 kW</option>
+                                    <option value="7.5">7.5 kW</option>
+                                    <option value="10">10 kW</option>
+                                    <option value="15">15 kW</option>
+                                    <option value="20">20 kW+</option>
+                                  </select>
+                                </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Key Appliances to Power</label>
-                      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <label className="inline-flex items-center">
-                          <input type="checkbox" name="appliances" value="Lights & TV" className="h-4 w-4 text-[#2ebc6e]" />
-                          <span className="ml-2 text-gray-700">Lights & TV</span>
+                                <div>
+                                  <label htmlFor="batteryCapacity" className="block text-sm font-medium text-gray-700">Battery Capacity (kWh)</label>
+                                  <select id="batteryCapacity" name="batteryCapacity" className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]">
+                                    <option value="none">None</option>
+                                    <option value="2.4">2.4 kWh</option>
+                                    <option value="5">5 kWh</option>
+                                    <option value="10">10 kWh</option>
+                                    <option value="15">15 kWh</option>
+                                    <option value="20">20 kWh+</option>
+                                  </select>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </label>
-                        <label className="inline-flex items-center">
-                          <input type="checkbox" name="appliances" value="Fridge/Freezer" className="h-4 w-4 text-[#2ebc6e]" />
-                          <span className="ml-2 text-gray-700">Fridge/Freezer</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                          <input type="checkbox" name="appliances" value="Water Heater/Iron Box" className="h-4 w-4 text-[#2ebc6e]" />
-                          <span className="ml-2 text-gray-700">Water Heater / Iron Box</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                          <input type="checkbox" name="appliances" value="Water Pump/Borehole" className="h-4 w-4 text-[#2ebc6e]" />
-                          <span className="ml-2 text-gray-700">Water Pump / Borehole</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                          <input type="checkbox" name="appliances" value="Microwave" className="h-4 w-4 text-[#2ebc6e]" />
-                          <span className="ml-2 text-gray-700">Microwave</span>
+
+                        <label className="flex items-start gap-3">
+                          <input type="radio" name="sizeOption" value="unknown" checked={sizeOption === 'unknown'} onChange={() => setSizeOption('unknown')} className="mt-1 h-4 w-4 text-[#2ebc6e]" />
+                          <div>
+                            <div className="font-semibold">Option B - I don't know my system size yet</div>
+                            {sizeOption === 'unknown' && (
+                              <div className="mt-3 p-4 bg-green-50 border-l-4 border-[#2ebc6e] text-[#065f46] rounded">
+                                <div className="font-medium">No worries! Use our free Solar Calculator to find the right size for your home in under 2 minutes.</div>
+                                <div className="mt-3">
+                                  <Link href="/calculator" className="inline-flex items-center px-4 py-2 bg-[#2ebc6e] text-white rounded-md">Open Solar Calculator</Link>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </label>
                       </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="other" className="block text-sm font-medium text-gray-700">Any other appliances?</label>
-                      <input id="other" name="other" type="text" className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]" />
                     </div>
                   </div>
                 </div>
