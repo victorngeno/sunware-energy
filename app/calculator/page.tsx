@@ -30,27 +30,78 @@ export default function Calculator() {
   }
 
   // Calculations
-  const totalDailyKWh = appliances.reduce((sum, it) => {
+
+  // Appliance categories with coincidence factors
+  const getCoincidenceFactor = (name: string) => {
+    const lowerName = name.toLowerCase()
+    if (lowerName.includes('fridge') || lowerName.includes('freezer') || lowerName.includes('wifi router') || lowerName.includes('security light')) {
+      return 1.0 // ALWAYS-ON
+    } else if (lowerName.includes('led bulb') || lowerName.includes('fluorescent tube') || lowerName.includes('tv') || lowerName.includes('decoder') || lowerName.includes('dstv') || lowerName.includes('home theatre') || lowerName.includes('sound system') || lowerName.includes('fan')) {
+      return 0.7 // SCHEDULED
+    } else if (lowerName.includes('electric kettle') || lowerName.includes('microwave') || lowerName.includes('iron box') || lowerName.includes('hair dryer') || lowerName.includes('water heater') || lowerName.includes('washing machine')) {
+      return 0.35 // INTERMITTENT HIGH-LOAD
+    } else if (lowerName.includes('blender') || lowerName.includes('laptop') || lowerName.includes('phone charger') || lowerName.includes('water pump') || lowerName.includes('air conditioner')) {
+      return 0.2 // OCCASIONAL
+    } else {
+      return 0.7 // default SCHEDULED
+    }
+  }
+
+  // STEP 1 - Daily Energy (Wh/day)
+  const totalDailyWh = appliances.reduce((sum, it) => {
     const watt = Number(it.watt)||0
     const qty = Number(it.qty)||0
     const hours = Number(it.hours)||0
-    return sum + (watt * qty * hours) / 1000
+    return sum + (watt * qty * hours)
   }, 0)
+  const totalDailyKWh = totalDailyWh / 1000
 
-  const totalPeakWatt = appliances.reduce((sum, it) => {
+  // STEP 2 - Realistic Peak Demand
+  const peakDemandW = appliances.reduce((sum, it) => {
     const watt = Number(it.watt)||0
     const qty = Number(it.qty)||0
-    return sum + watt * qty
+    const categoryLoad = watt * qty
+    const factor = getCoincidenceFactor(it.name)
+    return sum + (categoryLoad * factor)
   }, 0)
 
-  // Panel kW = totalDailyKWh / 5, rounded up to nearest 0.5
-  const panelKWRaw = totalDailyKWh / 5
-  const panelKW = Math.ceil(panelKWRaw * 2) / 2
+  // STEP 3 - Inverter Sizing
+  const rawInverterKW = (peakDemandW / 1000) * 1.25
+  const standardSizes = [3, 5, 8, 10, 12, 15, 20, 25, 30]
+  const inverterKW = standardSizes.find(size => size >= rawInverterKW) || 30
 
-  const batteryKWh = backup === 'daynight' ? +(totalDailyKWh * 0.6).toFixed(2) : null
+  // STEP 4 - PV Array Sizing
+  const PSH = 5.5
+  const systemEfficiency = 0.78
+  const pArrayWp = totalDailyWh / (PSH * systemEfficiency)
+  const panelWattage = 550
+  const numPanels = Math.ceil(pArrayWp / panelWattage)
+  const totalPanelKW = (numPanels * panelWattage) / 1000
 
-  // inverter size kW = peakWatt/1000 rounded up (nearest 0.1)
-  const inverterKW = Math.ceil((totalPeakWatt/1000) * 10) / 10 || 0
+  // STEP 5 - Battery Sizing
+  const criticalAppliances = [
+    'fridge', 'wifi router', 'led bulb', 'fluorescent tube', 'tv', 'decoder', 'security light', 'fan', 'phone charger', 'laptop', 'sound system', 'home theatre'
+  ]
+  let batteryKWh = null
+  if (backup === 'daynight') {
+    const criticalDailyWh = appliances.reduce((sum, ap) => {
+      const name = ap.name.toLowerCase()
+      const isCritical = criticalAppliances.some(crit => name.includes(crit))
+      if (isCritical) {
+        const watt = Number(ap.watt) || 0
+        const qty = Number(ap.qty) || 0
+        const hours = Number(ap.hours) || 0
+        const nightHours = Math.min(hours, 6)
+        return sum + (watt * qty * nightHours)
+      }
+      return sum
+    }, 0)
+    const autonomyDays = 1
+    const DoD = 0.85
+    const inverterEfficiency = 0.92
+    const batteryRaw = (criticalDailyWh * autonomyDays) / (DoD * inverterEfficiency * 1000)
+    batteryKWh = Math.ceil(batteryRaw * 2) / 2
+  }
 
   return (
     <>
@@ -183,21 +234,29 @@ export default function Calculator() {
               <h2 className="text-xl font-semibold">Step 4 — Your Results</h2>
               <div className="mt-4 bg-gray-50 p-6 rounded">
                 <div className="text-lg font-bold">Total Daily Energy Consumption</div>
-                <div className="text-2xl text-[#2ebc6e] font-extrabold">{totalDailyKWh.toFixed(2)} kWh</div>
+                <div className="text-2xl text-[#2ebc6e] font-extrabold">{totalDailyKWh.toFixed(2)} kWh/day</div>
 
                 <div className="mt-4">
-                  <div className="font-semibold">Recommended Solar Panel Capacity</div>
-                  <div className="text-xl">{panelKW} kW</div>
+                  <div className="font-semibold">Peak Demand</div>
+                  <div className="text-xl">{peakDemandW > 1000 ? `${(peakDemandW / 1000).toFixed(1)} kW` : `${peakDemandW} W`}</div>
                 </div>
 
                 <div className="mt-4">
-                  <div className="font-semibold">Recommended Battery Capacity</div>
-                  <div className="text-xl">{batteryKWh ? `${batteryKWh} kWh` : 'Not required'}</div>
-                </div>
-
-                <div className="mt-4">
-                  <div className="font-semibold">Recommended Inverter Size</div>
+                  <div className="font-semibold">Recommended Inverter</div>
                   <div className="text-xl">{inverterKW} kW</div>
+                  <div className="text-sm text-gray-600 mt-1">Sized using realistic coincidence factors and 1.25x surge margin</div>
+                </div>
+
+                <div className="mt-4">
+                  <div className="font-semibold">Recommended Solar Array</div>
+                  <div className="text-xl">{totalPanelKW.toFixed(1)} kW ({numPanels} panels × 550W bifacial)</div>
+                  <div className="text-sm text-gray-600 mt-1">Based on 5.5 peak sun hours and 78% system efficiency with 550W bifacial panels</div>
+                </div>
+
+                <div className="mt-4">
+                  <div className="font-semibold">Recommended Battery</div>
+                  <div className="text-xl">{batteryKWh ? `${batteryKWh} kWh` : 'Not required'}</div>
+                  {batteryKWh && <div className="text-sm text-gray-600 mt-1">Sized for critical loads only with 1 day autonomy and 85% depth of discharge</div>}
                 </div>
 
                 <div className="mt-6 flex gap-3">

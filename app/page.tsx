@@ -11,26 +11,25 @@ export default function Home() {
     <>
     <main className="min-h-screen bg-white text-gray-800">
       {/* Navbar */}
-      <header className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-orange-400 shadow">
+      <header className="absolute inset-x-0 top-0 z-30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 py-4">
             <div className="flex items-center">
-              <div className="flex-shrink-0 h-10">{/* h-10 = 40px to match navbar height */}
-                <Link href="/">
-                  <Image src="/Sunware Logo.png" alt="Sunware Energy logo" width={80} height={40} className="object-contain h-full w-auto" />
-                </Link>
-              </div>
+              <Link href="/">
+                <Image src="/Sunware Logo.png" alt="Sunware Energy logo" width={100} height={40} className="object-contain h-10 w-auto" />
+              </Link>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-white hover:underline">Home</Link>
-              <Link href="/about" className="text-white hover:underline">About</Link>
-              <Link href="/quote" className="text-white hover:underline">Get a Quote</Link>
-              <Link href="/services" className="text-white hover:underline">Services</Link>
-              <Link href="/contact" className="text-white hover:underline">Contact</Link>
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link href="/" className="text-white hover:text-[#2ebc6e] transition">Home</Link>
+              <Link href="/about" className="text-white hover:text-[#2ebc6e] transition">About</Link>
+              <Link href="/portfolio" className="text-white hover:text-[#2ebc6e] transition">Portfolio</Link>
+              <Link href="/quote" className="text-white hover:text-[#2ebc6e] transition">Get a Quote</Link>
+              <Link href="/services" className="text-white hover:text-[#2ebc6e] transition">Services</Link>
+              <Link href="/contact" className="text-white hover:text-[#2ebc6e] transition">Contact</Link>
             </nav>
             <div className="md:hidden">
               {/* Mobile menu button */}
-              <button type="button" aria-label="Toggle menu" onClick={() => setMobileOpen(!mobileOpen)} aria-controls="mobile-menu" aria-expanded={mobileOpen} className="text-white focus:outline-none">☰</button>
+              <button type="button" aria-label="Toggle menu" onClick={() => setMobileOpen(!mobileOpen)} aria-controls="mobile-menu" aria-expanded={mobileOpen} className="text-white focus:outline-none text-2xl">☰</button>
             </div>
           </div>
         </div>
@@ -38,10 +37,11 @@ export default function Home() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div id="mobile-menu" className="md:hidden bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e]">
+        <div id="mobile-menu" className="md:hidden bg-black/90 backdrop-blur-xl text-white">
           <div className="px-6 pt-2 pb-4 space-y-1">
             <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white py-2">Home</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white py-2">About</Link>
+            <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-white py-2">Portfolio</Link>
             <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-white py-2">Services</Link>
             <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-white py-2">Get a Quote</Link>
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white py-2">Contact</Link>
@@ -50,21 +50,46 @@ export default function Home() {
       )}
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-yellow-50 to-white">
-  <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">Reliable solar power for homes and businesses in Kenya</h1>
-              <p className="mt-6 text-lg text-gray-700">Sunware Energy Limited delivers premium solar installation, maintenance and consultancy services to help you save on energy costs and reduce your carbon footprint.</p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Link href="/quote" className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow">Get a free quote</Link>
-                <Link href="/services" className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-orange-300 bg-white text-orange-600 font-semibold">Our Services</Link>
-              </div>
+      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/Oloiting 6.jpeg" alt="Solar installation background" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex min-h-[85vh] md:min-h-[90vh] items-center">
+          <div className="w-full max-w-3xl mx-auto text-center md:text-left">
+            <p className="text-sm uppercase tracking-[0.28em] text-[#2ebc6e] mb-4">Premium solar energy solutions</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight max-w-2xl mx-auto md:mx-0">
+              Reliable <span className="text-[#2ebc6e] underline decoration-[#2ebc6e]/40 decoration-4 underline-offset-8">solar power</span> for homes and businesses across Kenya.
+            </h1>
+            <p className="mt-6 text-sm sm:text-base text-slate-200/90 max-w-xl mx-auto md:mx-0">
+              Sunware Energy Limited delivers premium solar installation, maintenance and consultancy services to help you save on energy costs and reduce your carbon footprint.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center md:justify-start">
+              <Link href="/quote" className="inline-flex items-center justify-center rounded-full bg-[#2ebc6e] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-xl shadow-[#2ebc6e]/20 hover:bg-[#27b95b] transition">
+                Get a Free Quote <span className="ml-2">→</span>
+              </Link>
+              <Link href="/services" className="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm sm:text-base font-semibold text-white hover:border-[#2ebc6e] hover:text-[#2ebc6e] transition">
+                View Services
+              </Link>
+              <Link href="/calculator" className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm sm:text-base font-semibold text-white hover:text-[#2ebc6e] transition">
+                Try our Solar Calculator <span className="ml-2">→</span>
+              </Link>
             </div>
 
-            <div className="flex justify-center lg:justify-end">
-              <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-6">
-                <img src="/Imarisha Fort tenan image 1.jpeg" alt="Solar project - Imarisha Fort" width={800} height={550} className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[550px] object-cover rounded-2xl shadow-sm" onError={(e)=>{(e.target as HTMLImageElement).style.display='none'}} />
+            <div className="mt-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-sm text-slate-200">
+              <div className="inline-flex items-center gap-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2ebc6e]/15 text-[#2ebc6e]">✓</span>
+                <span>3+ Years Experience</span>
+              </div>
+              <div className="inline-flex items-center gap-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2ebc6e]/15 text-[#2ebc6e]">✓</span>
+                <span>50+ Installations</span>
+              </div>
+              <div className="inline-flex items-center gap-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2ebc6e]/15 text-[#2ebc6e]">✓</span>
+                <span>Licensed Engineers</span>
               </div>
             </div>
           </div>
@@ -158,37 +183,108 @@ export default function Home() {
       </section>
 
       {/* Why choose us */}
-      <section id="about" className="py-16 bg-gradient-to-r from-yellow-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-gray-900">Why choose Sunware Energy?</h2>
-          <p className="mt-2 text-gray-600">Local expertise, proven performance and customer-first service.</p>
+      <section id="about" className="py-20 bg-[#0f172a]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#2ebc6e] mb-4">Why Sunware Energy</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">Clean energy solutions, delivered with expertise.</h2>
+          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-[#2ebc6e]" />
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-white border rounded-lg text-center">
-              <div className="text-4xl">⚡</div>
-              <h4 className="mt-4 font-semibold">Reliable Performance</h4>
-              <p className="mt-2 text-gray-600">High-quality components and certified installers.</p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+            <article className="group rounded-3xl bg-[#1e293b] p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.8)] transition hover:-translate-y-1 hover:shadow-[0_25px_60px_-30px_rgba(46,188,110,0.35)]">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M12 2a9 9 0 0 0-9 9c0 4.98 4.02 9 9 9a9 9 0 0 0 0-18Zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm.75-10.75h-1.5v4.5h1.5v-4.5Zm0 6.75h-1.5v1.5h1.5v-1.5Z"/></svg>
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">3+ Years of Proven Experience</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">With over 3 years of hands-on solar installations across Kenya, we bring technical expertise and practical insight to every residential and commercial project we deliver.</p>
+              <div className="mt-8 h-1 w-16 rounded-full bg-[#2ebc6e]" />
+            </article>
+
+            <article className="group rounded-3xl bg-[#1e293b] p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.8)] transition hover:-translate-y-1 hover:shadow-[0_25px_60px_-30px_rgba(46,188,110,0.35)]">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M4 4h16v2H4V4Zm4 4h8v2H8V8Zm-4 4h16v2H4v-2Zm4 4h8v2H8v-2Z"/></svg>
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">EPRA Licensed & Certified</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">Sunware Energy holds EPRA Class C1 (Solar PV Contractor), V1 (Design & Installation) and V2 (Importer/Manufacturer) licences — giving you full confidence that your installation meets Kenya's energy regulatory standards.</p>
+              <div className="mt-8 h-1 w-16 rounded-full bg-[#2ebc6e]" />
+            </article>
+
+            <article className="group rounded-3xl bg-[#1e293b] p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.8)] transition hover:-translate-y-1 hover:shadow-[0_25px_60px_-30px_rgba(46,188,110,0.35)]">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M12 2a7 7 0 0 0-7 7v3a7 7 0 0 0 7 7 7 7 0 0 0 7-7v-3a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0v-3a5 5 0 0 1 5-5Z"/></svg>
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">Your Energy Goals, Our Priority</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">Every client has unique energy needs. We listen first, then design a system that fits your budget, lifestyle and long-term goals — backed by dedicated after-sales support.</p>
+              <div className="mt-8 h-1 w-16 rounded-full bg-[#2ebc6e]" />
+            </article>
+
+            <article className="group rounded-3xl bg-[#1e293b] p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.8)] transition hover:-translate-y-1 hover:shadow-[0_25px_60px_-30px_rgba(46,188,110,0.35)]">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M4 7h16v2H4V7Zm0 4h16v2H4v-2Zm0 4h10v2H4v-2Z"/></svg>
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">End-to-End Solar Support</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">From initial consultation and system design to installation and ongoing maintenance, we walk with you at every stage of your solar journey — so your investment keeps delivering.</p>
+              <div className="mt-8 h-1 w-16 rounded-full bg-[#2ebc6e]" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process */}
+      <section className="py-20 bg-[#f8f9fa]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#2ebc6e] mb-4">Our Process</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">How we deliver your solar solution, from survey to switch-on.</h2>
+          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-[#2ebc6e]" />
+
+          <div className="relative mt-14">
+            <div className="hidden lg:block absolute inset-x-0 top-28 h-px bg-[#2ebc6e]/30" />
+            <div className="grid gap-6 lg:grid-cols-4">
+            <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
+              <div className="flex flex-col items-center gap-4">
+                <span className="text-3xl font-extrabold text-[#2ebc6e]">1</span>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><rect x="6" y="6" width="14" height="18" rx="1" /><line x1="10" y1="12" x2="18" y2="12" /><line x1="10" y1="17" x2="18" y2="17" /><line x1="10" y1="22" x2="16" y2="22" /><circle cx="24" cy="24" r="4" /><line x1="27" y1="27" x2="30" y2="30" /></svg>
+                </div>
+              </div>
+              <h3 className="mt-8 text-xl font-bold text-slate-900">Site Survey</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">We begin by visiting your property to assess your energy needs, roof structure, shading, and electrical setup. Our engineers gather real site data to ensure every recommendation is accurate and tailored to your specific situation.</p>
             </div>
 
-            <div className="p-6 bg-white border rounded-lg text-center">
-              <div className="text-4xl">🌍</div>
-              <h4 className="mt-4 font-semibold">Sustainable Impact</h4>
-              <p className="mt-2 text-gray-600">Reduce emissions and lower energy bills.</p>
+            <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
+              <div className="flex flex-col items-center gap-4">
+                <span className="text-3xl font-extrabold text-[#2ebc6e]">2</span>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><circle cx="14" cy="14" r="6" /><path d="M18 10l2-2l4 4l-2 2M12 18l2 2M16 16l2 2M20 12l2 2" /><path d="M8 20l2-2M12 24l-2-2" /><circle cx="14" cy="14" r="8" opacity="0.5" /></svg>
+                </div>
+              </div>
+              <h3 className="mt-8 text-xl font-bold text-slate-900">System Design</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Using your load profile and site assessment data, we design a solar system sized precisely for your needs — selecting high-performance panels, inverters and batteries that balance output, longevity and cost-effectiveness.</p>
             </div>
 
-            <div className="p-6 bg-white border rounded-lg text-center">
-              <div className="text-4xl">📈</div>
-              <h4 className="mt-4 font-semibold">Cost Savings</h4>
-              <p className="mt-2 text-gray-600">Competitive pricing and tailored financing options.</p>
+            <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
+              <div className="flex flex-col items-center gap-4">
+                <span className="text-3xl font-extrabold text-[#2ebc6e]">3</span>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><path d="M8 26l10-10M26 8l-10 10M26 26l-10-10M8 8l10 10" /><path d="M10 24c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2" /><path d="M24 10c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2" /></svg>
+                </div>
+              </div>
+              <h3 className="mt-8 text-xl font-bold text-slate-900">Installation & Commissioning</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Our EPRA-licensed technicians execute the approved design with precision — handling all mounting, wiring and system integration before conducting full commissioning tests to verify your system is performing optimally.</p>
             </div>
 
-            <div className="p-6 bg-white border rounded-lg text-center">
-              <div className="text-4xl">🤝</div>
-              <h4 className="mt-4 font-semibold">Trusted Support</h4>
-              <p className="mt-2 text-gray-600">Responsive maintenance and customer care across Kenya.</p>
+            <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
+              <div className="flex flex-col items-center gap-4">
+                <span className="text-3xl font-extrabold text-[#2ebc6e]">4</span>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><circle cx="13" cy="13" r="6" /><path d="M13 9v8M9 13h8M17 11l2-2l2 2l-2 2M15 16l1-1l2 2l-1 1" /><path d="M22 22l2-3l3 2v4h-4l-1-3" /><circle cx="13" cy="13" r="8" opacity="0.3" /></svg>
+                </div>
+              </div>
+              <h3 className="mt-8 text-xl font-bold text-slate-900">After-Sales Support & Maintenance</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Our relationship doesn't end at installation. We offer scheduled maintenance, performance monitoring and responsive technical support to keep your system running efficiently for years to come.</p>
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       {/* Contact */}
