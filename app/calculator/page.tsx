@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export default function Calculator() {
   const [step, setStep] = useState(1)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const [appliances, setAppliances] = useState<Array<any>>([
     { id: Date.now(), name: '', watt: '', qty: 1, hours: 0 },
   ])
@@ -122,12 +123,29 @@ export default function Calculator() {
               <Link href="/" className="text-white hover:underline">Home</Link>
               <Link href="/about" className="text-white hover:underline">About</Link>
               <Link href="/services" className="text-white hover:underline">Services</Link>
+              <Link href="/portfolio" className="text-white hover:underline">Portfolio</Link>
               <Link href="/quote" className="text-white hover:underline">Get a Quote</Link>
               <Link href="/contact" className="text-white hover:underline">Contact</Link>
             </nav>
+            <div className="md:hidden">
+              <button type="button" aria-label="Toggle menu" onClick={() => setMobileOpen(!mobileOpen)} aria-controls="mobile-menu" aria-expanded={mobileOpen} className="text-white focus:outline-none">☰</button>
+            </div>
           </div>
         </div>
       </header>
+
+      {mobileOpen && (
+        <div className="md:hidden bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e]">
+          <div className="px-6 pt-2 pb-4 space-y-1">
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white py-2">Home</Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white py-2">About</Link>
+            <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-white py-2">Services</Link>
+            <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-white py-2">Portfolio</Link>
+            <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-white py-2">Get a Quote</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white py-2">Contact</Link>
+          </div>
+        </div>
+      )}
 
       {/* Hero */}
       <section className="bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e] text-white">

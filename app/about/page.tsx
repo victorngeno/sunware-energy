@@ -24,8 +24,9 @@ export default function About() {
             <nav className="hidden md:flex space-x-8">
               <Link href="/" className="text-white hover:underline">Home</Link>
               <Link href="/about" className="text-white hover:underline underline-offset-4">About</Link>
-              <Link href="/quote" className="text-white hover:underline">Get a Quote</Link>
               <Link href="/services" className="text-white hover:underline">Services</Link>
+              <Link href="/portfolio" className="text-white hover:underline">Portfolio</Link>
+              <Link href="/quote" className="text-white hover:underline">Get a Quote</Link>
               <Link href="/contact" className="text-white hover:underline">Contact</Link>
             </nav>
 
@@ -42,6 +43,7 @@ export default function About() {
             <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white py-2">Home</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white py-2">About</Link>
             <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-white py-2">Services</Link>
+            <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-white py-2">Portfolio</Link>
             <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-white py-2">Get a Quote</Link>
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white py-2">Contact</Link>
           </div>

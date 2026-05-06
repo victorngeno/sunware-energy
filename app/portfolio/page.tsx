@@ -7,6 +7,7 @@ import Link from 'next/link'
 const projects = [
   {
     id: 1,
+    slug: 'imaarisha-sacco',
     category: 'Commercial',
     title: '5kW Solar Installation for Imaarisha SACCO Offices – Fort Ternan, Kericho County',
     completed: 'February 2026',
@@ -17,6 +18,7 @@ const projects = [
   },
   {
     id: 2,
+    slug: 'kiu-river',
     category: 'Residential',
     title: 'Residential Solar & Solar Water Heating Installation at Kiu River, Kahawa Sukari',
     completed: 'December 2025',
@@ -27,6 +29,7 @@ const projects = [
   },
   {
     id: 3,
+    slug: 'langata-water-pumping',
     category: 'Water Pumping',
     title: 'Langata Solar Water Pumping System Installation',
     completed: 'November 2025',
@@ -37,6 +40,7 @@ const projects = [
   },
   {
     id: 4,
+    slug: 'kileleshwa',
     category: 'Residential',
     title: 'Residential Hybrid Solar Installation – Kileleshwa, Nairobi',
     completed: 'July 2025',
@@ -47,6 +51,7 @@ const projects = [
   },
   {
     id: 5,
+    slug: 'nandi-hills-school',
     category: 'Schools',
     title: '10kW Hybrid Solar Installation – Nandi Hills, Kenya',
     completed: 'July 2025',
@@ -57,6 +62,7 @@ const projects = [
   },
   {
     id: 6,
+    slug: 'knh-hospital',
     category: 'Hospitals',
     title: '30kWh Hybrid Backup System – Kenyatta National Hospital',
     completed: 'August 2025',
@@ -67,6 +73,7 @@ const projects = [
   },
   {
     id: 7,
+    slug: 'migori',
     category: 'Residential',
     title: '12kW Residential Hybrid Solar System – Migori',
     completed: 'September 2025',
@@ -108,9 +115,9 @@ export default function Portfolio() {
               <nav className="hidden md:flex items-center space-x-8">
                 <Link href="/" className="text-gray-700 hover:text-[#2ebc6e] transition">Home</Link>
                 <Link href="/about" className="text-gray-700 hover:text-[#2ebc6e] transition">About</Link>
+                <Link href="/services" className="text-gray-700 hover:text-[#2ebc6e] transition">Services</Link>
                 <Link href="/portfolio" className="text-[#2ebc6e] font-semibold transition">Portfolio</Link>
                 <Link href="/quote" className="text-gray-700 hover:text-[#2ebc6e] transition">Get a Quote</Link>
-                <Link href="/services" className="text-gray-700 hover:text-[#2ebc6e] transition">Services</Link>
                 <Link href="/contact" className="text-gray-700 hover:text-[#2ebc6e] transition">Contact</Link>
               </nav>
               <div className="md:hidden">
@@ -126,8 +133,8 @@ export default function Portfolio() {
             <div className="px-6 pt-2 pb-4 space-y-1">
               <Link href="/" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Home</Link>
               <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">About</Link>
-              <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-[#2ebc6e] font-semibold py-2">Portfolio</Link>
               <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Services</Link>
+              <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-[#2ebc6e] font-semibold py-2">Portfolio</Link>
               <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Get a Quote</Link>
               <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Contact</Link>
             </div>
@@ -224,9 +231,15 @@ export default function Portfolio() {
                     </div>
 
                     {/* Button */}
-                    <button className="w-full bg-[#2ebc6e] hover:bg-[#27b95b] text-white font-semibold py-2 px-4 rounded-lg transition">
-                      View Details
-                    </button>
+                    {project.slug ? (
+                      <Link href={`/portfolio/${project.slug}`} className="block w-full bg-[#2ebc6e] hover:bg-[#27b95b] text-white font-semibold py-2 px-4 rounded-lg text-center transition">
+                        View Details
+                      </Link>
+                    ) : (
+                      <button className="w-full bg-[#2ebc6e] hover:bg-[#27b95b] text-white font-semibold py-2 px-4 rounded-lg transition">
+                        View Details
+                      </button>
+                    )}
                   </div>
                 </article>
               ))}

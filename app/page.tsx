@@ -112,7 +112,7 @@ export default function Home() {
 
       {/* Services */}
   <section id="services" className="py-6 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900">Our Services</h2>
           <p className="mt-2 text-gray-600">Comprehensive solar services from planning to long-term support.</p>
 
@@ -185,7 +185,7 @@ export default function Home() {
       {/* Why choose us */}
       <section id="about" className="py-20 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#2ebc6e] mb-4">Why Sunware Energy</p>
+          <p className="text-base font-semibold uppercase tracking-[0.35em] text-[#2ebc6e] mb-4">Why Sunware Energy</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">Clean energy solutions, delivered with expertise.</h2>
           <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-[#2ebc6e]" />
 
@@ -232,7 +232,7 @@ export default function Home() {
       {/* Our Process */}
       <section className="py-20 bg-[#f8f9fa]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#2ebc6e] mb-4">Our Process</p>
+          <p className="text-base font-semibold uppercase tracking-[0.35em] text-[#2ebc6e] mb-4">Our Process</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">How we deliver your solar solution, from survey to switch-on.</h2>
           <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-[#2ebc6e]" />
 
@@ -242,9 +242,6 @@ export default function Home() {
             <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
               <div className="flex flex-col items-center gap-4">
                 <span className="text-3xl font-extrabold text-[#2ebc6e]">1</span>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><rect x="6" y="6" width="14" height="18" rx="1" /><line x1="10" y1="12" x2="18" y2="12" /><line x1="10" y1="17" x2="18" y2="17" /><line x1="10" y1="22" x2="16" y2="22" /><circle cx="24" cy="24" r="4" /><line x1="27" y1="27" x2="30" y2="30" /></svg>
-                </div>
               </div>
               <h3 className="mt-8 text-xl font-bold text-slate-900">Site Survey</h3>
               <p className="mt-4 text-sm leading-7 text-slate-600">We begin by visiting your property to assess your energy needs, roof structure, shading, and electrical setup. Our engineers gather real site data to ensure every recommendation is accurate and tailored to your specific situation.</p>
@@ -253,9 +250,6 @@ export default function Home() {
             <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
               <div className="flex flex-col items-center gap-4">
                 <span className="text-3xl font-extrabold text-[#2ebc6e]">2</span>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><circle cx="14" cy="14" r="6" /><path d="M18 10l2-2l4 4l-2 2M12 18l2 2M16 16l2 2M20 12l2 2" /><path d="M8 20l2-2M12 24l-2-2" /><circle cx="14" cy="14" r="8" opacity="0.5" /></svg>
-                </div>
               </div>
               <h3 className="mt-8 text-xl font-bold text-slate-900">System Design</h3>
               <p className="mt-4 text-sm leading-7 text-slate-600">Using your load profile and site assessment data, we design a solar system sized precisely for your needs — selecting high-performance panels, inverters and batteries that balance output, longevity and cost-effectiveness.</p>
@@ -264,9 +258,6 @@ export default function Home() {
             <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
               <div className="flex flex-col items-center gap-4">
                 <span className="text-3xl font-extrabold text-[#2ebc6e]">3</span>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><path d="M8 26l10-10M26 8l-10 10M26 26l-10-10M8 8l10 10" /><path d="M10 24c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2" /><path d="M24 10c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2" /></svg>
-                </div>
               </div>
               <h3 className="mt-8 text-xl font-bold text-slate-900">Installation & Commissioning</h3>
               <p className="mt-4 text-sm leading-7 text-slate-600">Our EPRA-licensed technicians execute the approved design with precision — handling all mounting, wiring and system integration before conducting full commissioning tests to verify your system is performing optimally.</p>
@@ -275,9 +266,6 @@ export default function Home() {
             <div className="relative rounded-3xl bg-white p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.15)]">
               <div className="flex flex-col items-center gap-4">
                 <span className="text-3xl font-extrabold text-[#2ebc6e]">4</span>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2ebc6e]/10 text-[#2ebc6e] shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-9 w-9"><circle cx="13" cy="13" r="6" /><path d="M13 9v8M9 13h8M17 11l2-2l2 2l-2 2M15 16l1-1l2 2l-1 1" /><path d="M22 22l2-3l3 2v4h-4l-1-3" /><circle cx="13" cy="13" r="8" opacity="0.3" /></svg>
-                </div>
               </div>
               <h3 className="mt-8 text-xl font-bold text-slate-900">After-Sales Support & Maintenance</h3>
               <p className="mt-4 text-sm leading-7 text-slate-600">Our relationship doesn't end at installation. We offer scheduled maintenance, performance monitoring and responsive technical support to keep your system running efficiently for years to come.</p>
