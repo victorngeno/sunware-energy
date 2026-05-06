@@ -50,15 +50,15 @@ export default function Home() {
       )}
 
       {/* Hero */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
+      <section className="relative min-h-[90vh] md:min-h-[95vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/Oloiting 6.jpeg" alt="Solar installation background" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex min-h-[85vh] md:min-h-[90vh] items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex min-h-[90vh] md:min-h-[95vh] items-center pt-32 md:pt-40">
           <div className="w-full max-w-3xl mx-auto text-center md:text-left">
-            <p className="text-sm uppercase tracking-[0.28em] text-[#2ebc6e] mb-4">Premium solar energy solutions</p>
+            <p className="text-sm uppercase tracking-[0.28em] text-[#2ebc6e] mb-4">THE LEADING SOLAR INSTALLER IN KENYA</p>
             <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight max-w-2xl mx-auto md:mx-0">
               Reliable <span className="text-[#2ebc6e] underline decoration-[#2ebc6e]/40 decoration-4 underline-offset-8">solar power</span> for homes and businesses across Kenya.
             </h1>
