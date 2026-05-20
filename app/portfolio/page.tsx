@@ -82,6 +82,17 @@ const projects = [
     systemType: 'Off-grid/Hybrid Solar + Battery Backup',
     videoId: 'VpDZiJ_QeEw',
   },
+  {
+    id: 8,
+    slug: 'oloiting-resort',
+    category: 'Commercial',
+    title: 'Off-Grid Solar Installation for Oloiting Resort – Kajiado County',
+    completed: '2025',
+    location: 'Oloiting, Kajiado',
+    clientType: 'Resort/Hospitality',
+    systemType: 'Dual Off-Grid Solar PV System',
+    videoId: 'B9KBbDLKgTI',
+  },
 ]
 
 const categories = ['All', 'Commercial', 'Residential', 'Water Pumping', 'Schools', 'Hospitals']
@@ -152,16 +163,12 @@ export default function Portfolio() {
         {/* Filter Bar */}
         <section className="py-8 bg-white border-b">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap justify-center gap-3">
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-5 py-2 rounded-full font-medium transition ${
-                    selectedCategory === cat
-                      ? 'bg-[#2ebc6e] text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                  className="px-5 py-2 rounded-full font-medium transition bg-gray-100 text-gray-700 hover:bg-gray-200"
                 >
                   {cat}
                 </button>
@@ -189,7 +196,7 @@ export default function Portfolio() {
                       className="w-full absolute inset-0"
                     />
                     {/* Category Badge */}
-                    <div className={`absolute top-4 left-4 ${categoryColors[project.category] || 'bg-gray-500'} text-white text-xs font-bold px-3 py-1 rounded-full z-10`}>
+                    <div className="absolute top-4 left-4 bg-[#2ebc6e] text-white text-xs font-bold px-3 py-1 rounded-full z-10">
                       {project.category}
                     </div>
                   </div>
