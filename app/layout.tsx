@@ -63,8 +63,8 @@ export default function RootLayout({
         <link rel="canonical" href="https://sunwareenergy.com" />
         <meta name="author" content="Sunware Energy Limited" />
         <meta name="robots" content="index, follow" />
-        <Script id="ld-json" strategy="afterInteractive">
-          {`{
+        <Script id="ld-json" strategy="afterInteractive" type="application/ld+json">
+          {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Sunware Energy Limited",
@@ -78,11 +78,15 @@ export default function RootLayout({
               "addressLocality": "Nairobi",
               "addressCountry": "Kenya"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -1.2921, "longitude": 36.8219 },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -1.2921,
+              "longitude": 36.8219
+            },
             "openingHours": ["Mo-Fr 08:00-17:00", "Sa 08:00-13:00"],
             "priceRange": "KES",
             "areaServed": "Kenya"
-          }`}
+          })}
         </Script>
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
