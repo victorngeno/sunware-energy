@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     description:
       "Sunware Energy Limited is an EPRA licensed solar company in Kenya offering residential solar, commercial solar, solar water pumping, energy audits and maintenance services across Kenya.",
   },
+  verification: {
+    google: 'aec6b88dbc9f9b38',
+  },
 };
 
 export default function RootLayout({
