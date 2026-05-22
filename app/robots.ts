@@ -1,13 +1,8 @@
-import { NextResponse } from 'next/server'
+import { MetadataRoute } from 'next'
 
-export async function GET() {
-  const content = `User-agent: *
-Allow: /
-
-Sitemap: https://sunwareenergy.com/sitemap.xml
-`
-
-  return new NextResponse(content, {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-  })
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: 'https://sunwareenergy.com/sitemap.xml',
+  }
 }

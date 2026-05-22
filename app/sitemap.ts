@@ -1,37 +1,20 @@
-import { NextResponse } from 'next/server'
+import { MetadataRoute } from 'next'
 
-export async function GET() {
-  const baseUrl = 'https://sunwareenergy.com'
-
-  const urls = [
-    { loc: '/', changefreq: 'daily', priority: '1.0' },
-    { loc: '/about', changefreq: 'monthly', priority: '0.8' },
-    { loc: '/services', changefreq: 'monthly', priority: '0.9' },
-    { loc: '/portfolio', changefreq: 'weekly', priority: '0.8' },
-    { loc: '/contact', changefreq: 'monthly', priority: '0.8' },
-    { loc: '/calculator', changefreq: 'monthly', priority: '0.7' },
-    { loc: '/portfolio/imaarisha-sacco', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/kiu-river', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/langata-water-pumping', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/kileleshwa', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/nandi-hills-school', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/knh-hospital', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/migori', changefreq: 'monthly', priority: '0.6' },
-    { loc: '/portfolio/oloiting-resort', changefreq: 'monthly', priority: '0.6' },
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: 'https://sunwareenergy.com', lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
+    { url: 'https://sunwareenergy.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://sunwareenergy.com/services', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: 'https://sunwareenergy.com/portfolio', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: 'https://sunwareenergy.com/contact', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://sunwareenergy.com/calculator', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: 'https://sunwareenergy.com/portfolio/imaarisha-sacco', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/kiu-river', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/langata-water-pumping', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/kileleshwa', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/nandi-hills-school', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/knh-hospital', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/migori', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/oloiting-resort', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
   ]
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${urls
-      .map((u) => {
-        return `<url><loc>${baseUrl}${u.loc}</loc><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`
-      })
-      .join('')}
-  </urlset>`
-
-  return new NextResponse(xml, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  })
 }
