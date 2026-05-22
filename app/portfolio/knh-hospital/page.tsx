@@ -24,6 +24,7 @@ export default function KNHHospitalProject() {
                 <Link href="/about" className="text-gray-700 hover:text-[#2ebc6e] transition">About</Link>
                 <Link href="/services" className="text-gray-700 hover:text-[#2ebc6e] transition">Services</Link>
                 <Link href="/portfolio" className="text-[#2ebc6e] font-semibold transition">Portfolio</Link>
+                <Link href="/blog" className="text-gray-700 hover:text-[#2ebc6e] transition">Blog</Link>
                 <Link href="/quote" className="text-gray-700 hover:text-[#2ebc6e] transition">Get a Quote</Link>
                 <Link href="/contact" className="text-gray-700 hover:text-[#2ebc6e] transition">Contact</Link>
               </nav>
@@ -36,11 +37,12 @@ export default function KNHHospitalProject() {
 
         {mobileOpen && (
           <div id="mobile-menu" className="md:hidden bg-gray-50">
-            <div className="px-6 pt-2 pb-4 space-y-1">
-              <Link href="/" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Home</Link>
+              <div className="px-6 pt-2 pb-4 space-y-1">
+                <Link href="/" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Home</Link>
               <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">About</Link>
               <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Services</Link>
               <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-[#2ebc6e] font-semibold py-2">Portfolio</Link>
+              <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Blog</Link>
               <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Get a Quote</Link>
               <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-gray-700 py-2">Contact</Link>
             </div>

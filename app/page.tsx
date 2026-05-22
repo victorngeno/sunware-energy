@@ -23,6 +23,7 @@ export default function Home() {
               <Link href="/" className="text-white hover:text-[#2ebc6e] transition">Home</Link>
               <Link href="/about" className="text-white hover:text-[#2ebc6e] transition">About</Link>
               <Link href="/portfolio" className="text-white hover:text-[#2ebc6e] transition">Portfolio</Link>
+              <Link href="/blog" className="text-white hover:text-[#2ebc6e] transition">Blog</Link>
               <Link href="/quote" className="text-white hover:text-[#2ebc6e] transition">Get a Quote</Link>
               <Link href="/services" className="text-white hover:text-[#2ebc6e] transition">Services</Link>
               <Link href="/contact" className="text-white hover:text-[#2ebc6e] transition">Contact</Link>
@@ -38,10 +39,11 @@ export default function Home() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div id="mobile-menu" className="md:hidden bg-black/90 backdrop-blur-xl text-white">
-          <div className="px-6 pt-2 pb-4 space-y-1">
+            <div className="px-6 pt-2 pb-4 space-y-1">
             <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white py-2">Home</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white py-2">About</Link>
             <Link href="/portfolio" onClick={() => setMobileOpen(false)} className="block text-white py-2">Portfolio</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-white py-2">Blog</Link>
             <Link href="/services" onClick={() => setMobileOpen(false)} className="block text-white py-2">Services</Link>
             <Link href="/quote" onClick={() => setMobileOpen(false)} className="block text-white py-2">Get a Quote</Link>
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white py-2">Contact</Link>
