@@ -58,6 +58,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex min-h-[90vh] md:min-h-[95vh] items-center pt-32 md:pt-40">
           <div className="w-full max-w-3xl mx-auto text-center md:text-left">
+            <h1 className="sr-only">THE LEADING SOLAR INSTALLER IN KENYA</h1>
             <p className="text-sm uppercase tracking-[0.28em] text-[#2ebc6e] mb-4">THE LEADING SOLAR INSTALLER IN KENYA</p>
             <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight max-w-2xl mx-auto md:mx-0">
               Reliable <span className="text-[#2ebc6e] underline decoration-[#2ebc6e]/40 decoration-4 underline-offset-8">solar power</span> for homes and businesses across Kenya.
