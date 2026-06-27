@@ -271,8 +271,7 @@ export default function Portfolio() {
             </div>
 
             <div className="mt-4 md:mt-0 flex items-center space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white">Privacy</a>
-              <a href="#" className="text-gray-300 hover:text-white">Terms</a>
+              <Link href="/privacy-policy" className="text-gray-300 hover:text-white">Privacy Policy</Link>
               <a href="#contact" className="text-gray-300 hover:text-white">Contact</a>
             </div>
           </div>

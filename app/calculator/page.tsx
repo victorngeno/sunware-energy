@@ -306,7 +306,7 @@ export default function Calculator() {
           </div>
 
           <div className="mt-4 md:mt-0 flex items-center space-x-4">
-            <Link href="/" className="text-white/80 hover:text-white">Home</Link>
+            <Link href="/privacy-policy" className="text-white/80 hover:text-white">Privacy Policy</Link>
             <Link href="/contact" className="text-white/80 hover:text-white">Contact</Link>
           </div>
         </div>

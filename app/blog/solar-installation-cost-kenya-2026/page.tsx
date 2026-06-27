@@ -283,7 +283,13 @@ export default function PostPage() {
       </section>
 
       <footer className="border-t border-slate-200 bg-white py-8">
-        <div className="max-w-6xl mx-auto px-6 text-center text-sm text-slate-600">© {new Date().getFullYear()} Sunware Energy Limited. All rights reserved.</div>
+        <div className="max-w-6xl mx-auto px-6 text-center text-sm text-slate-600">
+          <div>© {new Date().getFullYear()} Sunware Energy Limited. All rights reserved.</div>
+          <div className="mt-3 flex items-center justify-center gap-4">
+            <Link href="/privacy-policy" className="text-[#2ebc6e] hover:text-[#0a7c6e]">Privacy Policy</Link>
+            <Link href="/" className="text-[#2ebc6e] hover:text-[#0a7c6e]">Home</Link>
+          </div>
+        </div>
       </footer>
     </main>
   )

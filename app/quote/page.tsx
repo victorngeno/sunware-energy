@@ -204,8 +204,7 @@ export default function Quote() {
           </div>
 
           <div className="mt-4 md:mt-0 flex items-center space-x-4">
-            <a href="#" className="text-white/80 hover:text-white">Privacy</a>
-            <a href="#" className="text-white/80 hover:text-white">Terms</a>
+            <Link href="/privacy-policy" className="text-white/80 hover:text-white">Privacy Policy</Link>
             <Link href="/" className="text-white/80 hover:text-white">Home</Link>
           </div>
         </div>
