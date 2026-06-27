@@ -24,12 +24,12 @@ export default function PostPage() {
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-2xl">
+      <section className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white py-16 sm:py-20 lg:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl sm:p-8 lg:p-10">
             <p className="text-sm uppercase tracking-[0.24em] text-emerald-200">Buyer's Guide</p>
-            <h1 className="mt-6 text-4xl md:text-5xl font-extrabold leading-tight">Selecting the Best Solar Battery Type and Brand for Your Home or Property</h1>
-            <p className="mt-6 max-w-3xl text-lg text-emerald-100">The solar battery is the heart of any reliable solar system. It stores the energy your panels generate during the day so you can power your home at night and ride through KPLC outages. But with dozens of battery types and brands now in the Kenyan market, choosing the right one can feel overwhelming. At Sunware Energy Limited, we install batteries every week and know exactly what performs in Kenyan conditions. This guide breaks down everything you need to make a confident, informed decision.</p>
+            <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">Selecting the Best Solar Battery Type and Brand for Your Home or Property</h1>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-emerald-100 sm:text-lg">The solar battery is the heart of any reliable solar system. It stores the energy your panels generate during the day so you can power your home at night and ride through KPLC outages. But with dozens of battery types and brands now in the Kenyan market, choosing the right one can feel overwhelming. At Sunware Energy Limited, we install batteries every week and know exactly what performs in Kenyan conditions. This guide breaks down everything you need to make a confident, informed decision.</p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex flex-wrap gap-3 text-sm text-emerald-100">
@@ -47,10 +47,10 @@ export default function PostPage() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 -mt-10 mb-10">
-        <div className="rounded-3xl border border-emerald-200/30 bg-emerald-50 p-6 shadow-xl">
-          <div className="rounded-3xl bg-white p-6 md:p-8 shadow-lg">
-            <div className="mb-8 rounded-3xl border border-emerald-200 bg-emerald-100 p-6">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 mb-10">
+        <div className="rounded-3xl border border-emerald-200/30 bg-emerald-50 p-4 shadow-xl sm:p-6">
+          <div className="rounded-3xl bg-white p-4 shadow-lg sm:p-6 md:p-8">
+            <div className="mb-6 rounded-3xl border border-emerald-200 bg-emerald-100 p-4 shadow-sm sm:mb-8 sm:p-6">
               <h2 className="text-xl font-semibold text-emerald-900">Table of Contents</h2>
               <ul className="mt-4 space-y-3 text-slate-700">
                 <li><a href="#how-it-works" className="hover:text-emerald-900">Understanding How a Solar Battery Works</a></li>
@@ -65,7 +65,7 @@ export default function PostPage() {
               </ul>
             </div>
 
-            <article className="space-y-10">
+            <article className="space-y-8 sm:space-y-10">
               <section id="how-it-works" className="space-y-6">
                 <h2 className="text-3xl font-extrabold text-slate-900 border-l-4 border-emerald-500 pl-5">Understanding How a Solar Battery Works</h2>
                 <p className="text-slate-700">A solar battery stores the excess energy your panels produce during daylight hours. When the sun goes down or the grid fails, your system draws from the battery instead of leaving you in the dark. The better the battery, the more usable energy you get, the longer it lasts, and the safer it runs. Three things separate a great battery from a poor one: the chemistry inside it, how much of its stored energy you can actually use, and how efficiently it charges and discharges. We'll cover all three below.</p>
@@ -140,49 +140,52 @@ export default function PostPage() {
               </section>
 
               <section id="recommendation" className="space-y-6">
-                <h2 className="text-3xl font-extrabold text-slate-900 border-l-4 border-emerald-500 pl-5">Which Battery Is Right for You?</h2>
-                <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 shadow-sm">
-                  <table className="w-full border-collapse text-left">
-                    <thead className="bg-emerald-900 text-white">
-                      <tr>
-                        <th className="px-6 py-4">Feature</th>
-                        <th className="px-6 py-4">Lithium (LiFePO4)</th>
-                        <th className="px-6 py-4">Gel</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-white">
-                        <td className="border-t px-6 py-4">Lifespan</td>
-                        <td className="border-t px-6 py-4">10+ years</td>
-                        <td className="border-t px-6 py-4">3-5 years</td>
-                      </tr>
-                      <tr className="bg-slate-50">
-                        <td className="border-t px-6 py-4">Depth of Discharge</td>
-                        <td className="border-t px-6 py-4">90-95%</td>
-                        <td className="border-t px-6 py-4">~50%</td>
-                      </tr>
-                      <tr className="bg-white">
-                        <td className="border-t px-6 py-4">Maintenance</td>
-                        <td className="border-t px-6 py-4">None</td>
-                        <td className="border-t px-6 py-4">None</td>
-                      </tr>
-                      <tr className="bg-slate-50">
-                        <td className="border-t px-6 py-4">Upfront cost</td>
-                        <td className="border-t px-6 py-4">Higher</td>
-                        <td className="border-t px-6 py-4">Lower</td>
-                      </tr>
-                      <tr className="bg-white">
-                        <td className="border-t px-6 py-4">Cost per usable kWh</td>
-                        <td className="border-t px-6 py-4">Lower</td>
-                        <td className="border-t px-6 py-4">Higher</td>
-                      </tr>
-                      <tr className="bg-slate-50">
-                        <td className="border-t px-6 py-4">Best for</td>
-                        <td className="border-t px-6 py-4">Most homes & businesses</td>
-                        <td className="border-t px-6 py-4">Budget / small backup</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 border-l-4 border-emerald-500 pl-3 sm:pl-5">Which Battery Is Right for You?</h2>
+                <div className="rounded-[1.5rem] border border-slate-200 shadow-sm">
+                  <p className="mb-3 text-xs text-slate-500 sm:hidden">← swipe to see more →</p>
+                  <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <table className="min-w-full border-collapse text-left">
+                      <thead className="bg-emerald-900 text-white">
+                        <tr>
+                          <th className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">Feature</th>
+                          <th className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">Lithium (LiFePO4)</th>
+                          <th className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-4">Gel</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-white">
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Lifespan</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">10+ years</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">3-5 years</td>
+                        </tr>
+                        <tr className="bg-slate-50">
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Depth of Discharge</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">90-95%</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">~50%</td>
+                        </tr>
+                        <tr className="bg-white">
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Maintenance</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">None</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">None</td>
+                        </tr>
+                        <tr className="bg-slate-50">
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Upfront cost</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Higher</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Lower</td>
+                        </tr>
+                        <tr className="bg-white">
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Cost per usable kWh</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Lower</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Higher</td>
+                        </tr>
+                        <tr className="bg-slate-50">
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Best for</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Most homes & businesses</td>
+                          <td className="border-t px-4 py-3 sm:px-6 sm:py-4">Budget / small backup</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
                 <p className="text-slate-700">For most Kenyan homes and businesses, a lithium (LiFePO4) battery is the smartest long-term investment — it lasts longer, gives you more usable power, and costs less per usable kWh over its life. Gel batteries remain a sensible choice for smaller backup needs or tighter budgets. Not sure which fits your home? Our engineers will assess your energy needs and recommend the right battery — no guesswork.</p>
               </section>
@@ -213,10 +216,10 @@ export default function PostPage() {
                 </div>
               </section>
 
-              <section id="cta" className="rounded-[2rem] bg-slate-950 px-8 py-10 text-white shadow-2xl">
+              <section id="cta" className="rounded-[2rem] bg-slate-950 px-6 py-8 text-white shadow-2xl sm:px-8 sm:py-10">
                 <div className="max-w-4xl">
-                  <h2 className="text-3xl font-extrabold">Get a Free Battery Consultation</h2>
-                  <p className="mt-4 text-slate-300">The right battery depends on your unique energy needs, budget and existing system. Let our EPRA-licensed engineers help you choose the perfect battery for your home or property.</p>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold">Get a Free Battery Consultation</h2>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">The right battery depends on your unique energy needs, budget and existing system. Let our EPRA-licensed engineers help you choose the perfect battery for your home or property.</p>
                   <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                     <Link href="/quote" className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-400 sm:w-auto">Get a Free Quote</Link>
                     <Link href="/contact" className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/15 sm:w-auto">Contact Us</Link>
