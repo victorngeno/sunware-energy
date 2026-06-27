@@ -40,6 +40,19 @@ export default function BlogPage() {
                 <Link href="/quote" className="text-sm text-gray-600">Get a Free Quote</Link>
               </div>
             </article>
+
+            <article className="border rounded-lg p-6 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Buyer's Guide</span>
+                <div className="text-sm text-gray-500">June 2026 • 7 min read</div>
+              </div>
+              <h2 className="mt-4 text-xl font-semibold">Selecting the Best Solar Battery Type and Brand for Your Home or Property</h2>
+              <p className="mt-2 text-gray-600">Lithium or gel? Deye or Dyness? Here's how to choose the right solar battery type and brand for your home or property in Kenya.</p>
+              <div className="mt-4 flex items-center justify-between">
+                <Link href="/blog/selecting-best-solar-battery-kenya" className="inline-block bg-[#2ebc6e] text-white px-4 py-2 rounded">Read More</Link>
+                <Link href="/quote" className="text-sm text-gray-600">Get a Free Quote</Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>
