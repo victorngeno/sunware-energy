@@ -197,13 +197,13 @@ export default function Quote() {
 
       {/* Footer */}
       <footer className="bg-[#0a7c6e] text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8 pb-20 sm:pb-16 flex flex-col md:flex-row items-center justify-between">
           <div className="text-center md:text-left">
             <div className="font-bold">Sunware Energy Limited</div>
             <div className="text-sm text-white/80">© {new Date().getFullYear()} Sunware Energy Limited. All rights reserved.</div>
           </div>
 
-          <div className="mt-4 md:mt-0 flex items-center space-x-4">
+          <div className="mt-4 md:mt-0 flex items-center space-x-4 pr-16 sm:pr-0">
             <Link href="/privacy-policy" className="text-white/80 hover:text-white">Privacy Policy</Link>
             <Link href="/" className="text-white/80 hover:text-white">Home</Link>
           </div>

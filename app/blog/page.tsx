@@ -58,7 +58,7 @@ export default function BlogPage() {
       </section>
 
       <footer className="border-t py-8">
-        <div className="max-w-6xl mx-auto px-6 text-center text-sm text-gray-600">
+        <div className="max-w-6xl mx-auto px-6 pb-20 sm:pb-16 text-center text-sm text-gray-600">
           <div>© {new Date().getFullYear()} Sunware Energy Limited. All rights reserved.</div>
           <div className="mt-3 flex items-center justify-center gap-4">
             <Link href="/privacy-policy" className="text-[#2ebc6e] hover:text-[#0a7c6e]">Privacy Policy</Link>
