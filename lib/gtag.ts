@@ -1,10 +1,9 @@
 // Google Analytics 4 measurement ID. Loads the shared gtag.js site tag.
 export const GA_MEASUREMENT_ID = 'G-D2640PVVSZ'
 
-// Google Ads conversion ID, still a placeholder. Google Ads conversions need an
-// AW- prefixed ID from Goals > Conversions; the GA4 G- id above will not work
-// here. Conversion events are no-ops until this and the label are filled in.
-export const GOOGLE_ADS_ID = 'AW-XXXXXXXXX'
+// Google Ads conversion ID. Configured alongside GA4 on every page so Google
+// Ads can attribute visits and build remarketing audiences.
+export const GOOGLE_ADS_ID = 'AW-11480051368'
 
 export function fireConversion(conversionLabel: string) {
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
