@@ -3,10 +3,43 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { fireConversion } from '@/lib/gtag'
 
 export default function Quote() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [sizeOption, setSizeOption] = useState<'know'|'unknown'>('unknown')
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSubmitting(true)
+    setErrorMsg(null)
+
+    const formData = new FormData(e.currentTarget)
+    const payload = Object.fromEntries(formData.entries())
+
+    try {
+      const res = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      fireConversion('CONVERSION_LABEL')
+      setSubmitted(true)
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <main className="min-h-screen bg-white text-gray-800">
@@ -66,7 +99,13 @@ export default function Quote() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
             <div className="bg-gray-50 border rounded-lg p-6 shadow-sm">
-              <form className="space-y-8" action="#" method="post">
+              {submitted ? (
+                <div className="text-center py-12">
+                  <h2 className="text-2xl font-bold text-gray-900">Thank you!</h2>
+                  <p className="mt-2 text-gray-700">We&apos;ve received your quote request and will be in touch shortly.</p>
+                </div>
+              ) : (
+              <form className="space-y-8" onSubmit={handleSubmit}>
 
                 {/* SECTION 1 - THE BASICS */}
                 <div>
@@ -185,11 +224,18 @@ export default function Quote() {
                   </div>
                 </div>
 
+                {errorMsg && (
+                  <p className="text-red-600 text-sm">{errorMsg}</p>
+                )}
+
                 <div className="pt-6 border-t">
-                  <button type="submit" className="w-full inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#2ebc6e] hover:bg-[#0a7c6e] text-white font-semibold">Request My Free Quote</button>
+                  <button type="submit" disabled={submitting} className="w-full inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#2ebc6e] hover:bg-[#0a7c6e] text-white font-semibold disabled:opacity-60 disabled:cursor-not-allowed">
+                    {submitting ? 'Sending...' : 'Request My Free Quote'}
+                  </button>
                 </div>
 
               </form>
+              )}
             </div>
           </div>
         </div>
