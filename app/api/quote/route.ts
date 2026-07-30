@@ -10,8 +10,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Full name and phone number are required.' }, { status: 400 })
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is not set')
+  // Both are required rather than defaulted: a wrong-but-plausible default
+  // sender just yields an opaque 403 from Resend at send time.
+  const missing = ['RESEND_API_KEY', 'QUOTE_FROM_EMAIL'].filter((key) => !process.env[key])
+
+  if (missing.length > 0) {
+    console.error(`Email is not configured, missing: ${missing.join(', ')}`)
     return NextResponse.json({ error: 'Email is not configured. Please call us instead.' }, { status: 500 })
   }
 
@@ -32,7 +36,7 @@ export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
 
   const { error } = await resend.emails.send({
-    from: process.env.QUOTE_FROM_EMAIL || 'quotes@sunwareenergy.com',
+    from: process.env.QUOTE_FROM_EMAIL!,
     to: process.env.QUOTE_TO_EMAIL || 'info@sunwareenergy.com',
     subject: `New Quote Request from ${fullName}`,
     text: lines.join('\n'),
