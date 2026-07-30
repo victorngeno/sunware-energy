@@ -65,7 +65,7 @@ export default function Contact() {
             <div className="bg-gray-50 border rounded-lg p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900">Contact details</h2>
               <p className="mt-4 text-gray-700"><span className="font-medium">Phone:</span> +254 724 659 062</p>
-              <p className="mt-2 text-gray-700"><span className="font-medium">Email:</span> <a href="mailto:info@sunwareenergy.co.ke" className="text-[#0a7c6e]">info@sunwareenergy.co.ke</a></p>
+              <p className="mt-2 text-gray-700"><span className="font-medium">Email:</span> <a href="mailto:info@sunwareenergy.com" className="text-[#0a7c6e]">info@sunwareenergy.com</a></p>
               <p className="mt-2 text-gray-700"><span className="font-medium">Location:</span> Samtech Plaza, Utawala, Eastern Bypass, Nairobi, Kenya</p>
 
               <div className="mt-6">

@@ -290,7 +290,7 @@ export default function Home() {
               Message us on WhatsApp
             </a>
 
-            <a href="mailto:info@sunware.co.ke" className="inline-flex items-center px-6 py-3 rounded-md border border-orange-300 bg-white text-orange-600 font-semibold">Email us</a>
+            <a href="mailto:info@sunwareenergy.com" className="inline-flex items-center px-6 py-3 rounded-md border border-orange-300 bg-white text-orange-600 font-semibold">Email us</a>
           </div>
         </div>
       </section>
