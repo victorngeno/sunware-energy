@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from 'next/script'
-import { GOOGLE_ADS_ID } from '@/lib/gtag'
+import { GA_MEASUREMENT_ID } from '@/lib/gtag'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -93,15 +93,15 @@ export default function RootLayout({
           })}
         </Script>
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GOOGLE_ADS_ID}');
+            gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
       </head>
