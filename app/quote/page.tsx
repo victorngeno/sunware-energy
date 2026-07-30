@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { fireConversion } from '@/lib/gtag'
+import { fireConversion, QUOTE_CONVERSION_LABEL } from '@/lib/gtag'
 
 export default function Quote() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -32,7 +32,7 @@ export default function Quote() {
         throw new Error(data.error || 'Something went wrong. Please try again.')
       }
 
-      fireConversion('CONVERSION_LABEL')
+      fireConversion(QUOTE_CONVERSION_LABEL)
       setSubmitted(true)
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
