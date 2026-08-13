@@ -6,6 +6,38 @@ import Link from 'next/link'
 
 export default function Contact() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSubmitting(true)
+    setErrorMsg(null)
+
+    const formData = new FormData(e.currentTarget)
+    const payload = Object.fromEntries(formData.entries())
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white text-gray-800">
       {/* Navbar */}
@@ -52,7 +84,7 @@ export default function Contact() {
       <section className="bg-gradient-to-r from-[#2ebc6e] to-[#0a7c6e] text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold">Contact Us</h1>
-          <p className="mt-3 text-white/90 max-w-2xl">We're here to help — reach out for quotes, site surveys or any questions about our services.</p>
+          <p className="mt-3 text-white/90 max-w-2xl">We&apos;re here to help — reach out for quotes, site surveys or any questions about our services.</p>
         </div>
       </section>
 
@@ -79,7 +111,13 @@ export default function Contact() {
             {/* Contact form */}
             <div className="bg-gray-50 border rounded-lg p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900">Send us a message</h2>
-              <form className="mt-4 grid grid-cols-1 gap-4" action="#" method="post">
+              {submitted ? (
+                <div className="mt-4 py-12 text-center">
+                  <h3 className="text-xl font-bold text-gray-900">Thank you!</h3>
+                  <p className="mt-2 text-gray-700">We&apos;ve received your message and will be in touch shortly.</p>
+                </div>
+              ) : (
+              <form className="mt-4 grid grid-cols-1 gap-4" onSubmit={handleSubmit}>
                 <label className="sr-only" htmlFor="name">Full Name</label>
                 <input id="name" name="name" type="text" required placeholder="Full Name" className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]" />
 
@@ -102,10 +140,13 @@ export default function Contact() {
                 <label className="sr-only" htmlFor="message">Message</label>
                 <textarea id="message" name="message" rows={4} placeholder="Message" className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]"></textarea>
 
+                {errorMsg && <p className="text-sm text-red-600">{errorMsg}</p>}
+
                 <div className="text-right">
-                  <button type="submit" className="inline-flex items-center px-6 py-2 rounded-md bg-[#2ebc6e] hover:bg-[#0a7c6e] text-white font-semibold">Send Message</button>
+                  <button type="submit" disabled={submitting} className="inline-flex items-center px-6 py-2 rounded-md bg-[#2ebc6e] hover:bg-[#0a7c6e] text-white font-semibold disabled:opacity-60">{submitting ? 'Sending…' : 'Send Message'}</button>
                 </div>
               </form>
+              )}
             </div>
 
           </div>
