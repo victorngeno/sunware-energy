@@ -11,9 +11,9 @@ const projects = [
     category: 'Residential',
     title: '10kW Hybrid Solar Installation – Kitengela, Kenya',
     completed: 'September 2026',
-    location: 'Kitengela, Kenya',
+    location: 'Kitengela, Kajiado County',
     clientType: 'Private Residential Home',
-    systemType: 'Hybrid Solar PV System (Battery Backup)',
+    systemType: 'Hybrid (Solar + Battery + Grid)',
     videoId: 'Kp9a0-vlKK4',
   },
   {

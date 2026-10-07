@@ -53,7 +53,7 @@ export default function KitengelaProject() {
           <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/80 mb-2">Project Detail</p>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white">10kW Hybrid Solar Installation</h1>
-            <p className="mt-3 text-base sm:text-lg text-white/90">Kitengela, Kenya</p>
+            <p className="mt-3 text-base sm:text-lg text-white/90">Kitengela, Kajiado County</p>
           </div>
         </section>
 
@@ -76,7 +76,7 @@ export default function KitengelaProject() {
                 <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200">
                   <div className="text-2xl">📍</div>
                   <p className="mt-4 text-sm text-slate-500 uppercase tracking-[0.25em]">Location</p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">Kitengela, Kenya</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">Kitengela, Kajiado County</p>
                 </div>
                 <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200">
                   <div className="text-2xl">💼</div>
@@ -86,7 +86,7 @@ export default function KitengelaProject() {
                 <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200">
                   <div className="text-2xl">🔋</div>
                   <p className="mt-4 text-sm text-slate-500 uppercase tracking-[0.25em]">System Type</p>
-                  <p className="mt-2 text-lg font-semibold text-slate-900">Hybrid Solar PV System (Battery Backup)</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">Hybrid (Solar + Battery + Grid)</p>
                 </div>
               </div>
             </div>
@@ -119,8 +119,72 @@ export default function KitengelaProject() {
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-slate-900">Reliable Solar Power for a Home in Kitengela</h2>
             <p className="mt-4 max-w-4xl text-slate-600 leading-8">
-              Sunware Energy Limited designed and installed a 10kW hybrid solar system for a private residential home in Kitengela. The system keeps the home powered during outages, with battery backup, and reduces reliance on the grid.
+              Kitengela is one of Kenya&apos;s fastest-growing residential towns — and with that growth comes rising power demand. This homeowner came to us looking for a reliable solar solution that would cut their electricity bills, eliminate blackout disruptions, and provide consistent power day and night.
             </p>
+            <p className="mt-4 max-w-4xl text-slate-600 leading-8">
+              We designed and installed a complete hybrid solar system tailored to the home&apos;s energy consumption, giving the household full energy independence with seamless grid backup when needed.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-12">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-slate-900">Solar System Specifications</h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm text-slate-500 uppercase tracking-[0.2em]">Solar Panels</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">10 × 615W high-efficiency panels</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm text-slate-500 uppercase tracking-[0.2em]">Total Capacity</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">6.15 kWp</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm text-slate-500 uppercase tracking-[0.2em]">Inverter</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">10kW hybrid inverter</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm text-slate-500 uppercase tracking-[0.2em]">Battery Storage</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">10kWh lithium battery</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm text-slate-500 uppercase tracking-[0.2em]">System Type</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">Hybrid (solar + battery + grid)</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm text-slate-500 uppercase tracking-[0.2em]">Location</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">Kitengela, Kajiado County</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-12">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-slate-900">What This System Delivers</h2>
+            <ul className="mt-6 max-w-4xl space-y-3 text-slate-600 leading-7">
+              <li className="flex gap-3"><span className="text-[#2ebc6e] font-bold">✓</span><span>Full daytime operation on solar power alone</span></li>
+              <li className="flex gap-3"><span className="text-[#2ebc6e] font-bold">✓</span><span>10kWh of battery storage for uninterrupted power after sunset and during blackouts</span></li>
+              <li className="flex gap-3"><span className="text-[#2ebc6e] font-bold">✓</span><span>Automatic switching between solar, battery, and grid — no manual intervention</span></li>
+              <li className="flex gap-3"><span className="text-[#2ebc6e] font-bold">✓</span><span>Significant reduction in monthly electricity bills</span></li>
+              <li className="flex gap-3"><span className="text-[#2ebc6e] font-bold">✓</span><span>Zero generator dependency — no fuel costs, no noise, no emissions</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-12">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-slate-900">Project Highlights</h2>
+              <p className="mt-4 max-w-4xl text-slate-600 leading-8">
+                This installation was completed end-to-end by the Sunware Energy team — from the initial site survey and system design through to commissioning and handover. The system was sized to match the home&apos;s actual power consumption, ensuring the homeowner gets maximum value from every panel on the roof.
+              </p>
+              <p className="mt-4 max-w-4xl text-slate-600 leading-8">
+                For homeowners in Kitengela and across Kajiado County, solar is no longer a luxury — it&apos;s the smartest investment you can make for your home.
+              </p>
+            </div>
           </div>
         </section>
 
