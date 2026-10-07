@@ -4,10 +4,10 @@ import { Resend } from 'resend'
 export async function POST(request: NextRequest) {
   const data = await request.json()
 
-  const { fullName, phone, city, need, setup, sizeOption, recommendedSystemSize, batteryCapacity } = data
+  const { fullName, email, phone, city, need, setup, sizeOption, recommendedSystemSize, batteryCapacity } = data
 
-  if (!fullName || !phone) {
-    return NextResponse.json({ error: 'Full name and phone number are required.' }, { status: 400 })
+  if (!fullName || !email || !phone) {
+    return NextResponse.json({ error: 'Full name, email and phone number are required.' }, { status: 400 })
   }
 
   // Both are required rather than defaulted: a wrong-but-plausible default
@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
 
   const lines = [
     `Full Name: ${fullName}`,
+    `Email: ${email}`,
     `Phone: ${phone}`,
     `Town/City: ${city || '-'}`,
     `Looking for: ${need || '-'}`,
@@ -39,6 +40,7 @@ export async function POST(request: NextRequest) {
     from: process.env.QUOTE_FROM_EMAIL!,
     to: process.env.QUOTE_TO_EMAIL || 'info@sunwareenergy.com',
     subject: `New Quote Request from ${fullName}`,
+    replyTo: email,
     text: lines.join('\n'),
   })
 

@@ -121,7 +121,12 @@ export default function Quote() {
                       <input id="phone" name="phone" type="tel" placeholder="e.g. 0724 659 062" required className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]" />
                     </div>
 
-                    <div className="sm:col-span-2">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                      <input id="email" name="email" type="email" placeholder="e.g. jane@example.com" required className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]" />
+                    </div>
+
+                    <div>
                       <label htmlFor="city" className="block text-sm font-medium text-gray-700">Town / City</label>
                       <input id="city" name="city" type="text" placeholder="e.g. Nairobi, Mombasa, Kisumu" className="mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2ebc6e]" />
                     </div>
