@@ -6,6 +6,17 @@ import Link from 'next/link'
 
 const projects = [
   {
+    id: 9,
+    slug: 'kitengela',
+    category: 'Residential',
+    title: '10kW Hybrid Solar Installation – Kitengela, Kenya',
+    completed: 'September 2026',
+    location: 'Kitengela, Kenya',
+    clientType: 'Private Residential Home',
+    systemType: 'Hybrid Solar PV System (Battery Backup)',
+    videoId: 'Kp9a0-vlKK4',
+  },
+  {
     id: 1,
     slug: 'imaarisha-sacco',
     category: 'Commercial',
