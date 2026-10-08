@@ -64,7 +64,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <link rel="canonical" href="https://sunwareenergy.com" />
         <meta name="author" content="Sunware Energy Limited" />
         <meta name="robots" content="index, follow" />
         <Script id="ld-json" strategy="afterInteractive" type="application/ld+json">
