@@ -6,6 +6,17 @@ import Link from 'next/link'
 
 const projects = [
   {
+    id: 10,
+    slug: 'tigoni',
+    category: 'Residential',
+    title: 'Dual Residential Solar Installation – Tigoni, Kiambu County',
+    completed: 'September 2026',
+    location: 'Tigoni, Kiambu County',
+    clientType: 'Residential (Dual Home)',
+    systemType: 'Hybrid (Solar + Battery + Grid)',
+    videoId: 'VriQmxBeDgk',
+  },
+  {
     id: 9,
     slug: 'kitengela',
     category: 'Residential',
