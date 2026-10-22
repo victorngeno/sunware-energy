@@ -6,6 +6,17 @@ import Link from 'next/link'
 
 const projects = [
   {
+    id: 11,
+    slug: 'ndhiwa',
+    category: 'Residential',
+    title: 'Home Solar & Solar Water Pumping – Ndhiwa, Homa Bay County',
+    completed: 'October 2026',
+    location: 'Ndhiwa, Homa Bay County',
+    clientType: 'Private Residential Home',
+    systemType: 'Hybrid Home System + Solar Water Pumping',
+    videoId: 'yb0W8UoOeZA',
+  },
+  {
     id: 10,
     slug: 'tigoni',
     category: 'Residential',

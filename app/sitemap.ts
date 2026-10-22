@@ -18,5 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://sunwareenergy.com/portfolio/oloiting-resort', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: 'https://sunwareenergy.com/portfolio/kitengela', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: 'https://sunwareenergy.com/portfolio/tigoni', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://sunwareenergy.com/portfolio/ndhiwa', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
   ]
 }
